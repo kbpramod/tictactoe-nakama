@@ -4,7 +4,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const client = new Client(
   "defaultkey",
   BASE_URL.replace("https://", ""),
-  "443",
+  "",
   true
 );
 
