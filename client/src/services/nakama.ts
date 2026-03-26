@@ -1,10 +1,11 @@
 import { Client, type Socket, Session } from "@heroiclabs/nakama-js";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const client = new Client(
   "defaultkey",
-  "192.168.1.14",
-  "7350",
-  false
+  BASE_URL.replace("https://", ""),
+  "443",
+  true
 );
 
 let socket: Socket | null = null;
