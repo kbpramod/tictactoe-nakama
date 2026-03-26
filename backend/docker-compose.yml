@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nakama
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  nakama:
+    image: heroiclabs/nakama:latest
+    container_name: nakama
+    depends_on:
+      - postgres
+    entrypoint:
+      - "/bin/sh"
+      - "-ecx"
+      - >
+        /nakama/nakama migrate up --database.address postgres:postgres@postgres:5432/nakama &&
+        exec /nakama/nakama
+        --name nakama1
+        --database.address postgres:postgres@postgres:5432/nakama
+        --runtime.js_entrypoint index.js
+        --logger.level INFO
+    volumes:
+      - ./build:/nakama/data/modules
+    ports:
+      - "7350:7350"
+      - "7351:7351"
+
+volumes:
+  postgres_data:

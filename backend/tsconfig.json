@@ -1,0 +1,25 @@
+{
+  "files": [
+    "./match/match.init.ts",
+    "./match/match.join.ts",
+    "./match/match.leave.ts",
+    "./match/match.loop.ts",
+    "./match/match.terminate.ts",
+    "./match/match.joinattempt.ts",
+    "./match/match.signal.ts",
+    "./match/gamelogic.ts",
+    "./index.ts",
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["ES2015"],
+    "typeRoots": [
+      "./node_modules"
+    ],
+    "outFile": "./build/index.js",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
