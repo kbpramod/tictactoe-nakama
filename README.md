@@ -36,6 +36,12 @@ Broadcast State Updates
 
 ---
 
+## 📸 Demo
+
+
+### Mobile
+![Mobile Gameplay](assets/home.png)![Mobile Gameplay](assets/game1.png)![Mobile Gameplay](assets/game2.png)
+
 ## ⚙️ Tech Stack
 
 ### Frontend
@@ -143,6 +149,14 @@ npm run dev
 
 * Uses WebSockets via Nakama
 * Broadcasts state changes to all players
+
+### Matchmaking Strategy
+
+- Implemented a simple 2-player matchmaking system
+- Server checks for existing matches with one waiting player
+- If found, the player is added to that match
+- Otherwise, a new match is created and the player waits for an opponent
+- Ensures all matches are strictly limited to 2 players
 
 ### Match Lifecycle Handling
 
