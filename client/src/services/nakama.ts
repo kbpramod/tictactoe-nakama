@@ -4,7 +4,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const client = new Client(
   "defaultkey",
   BASE_URL.replace("https://", ""),
-  "",
+  "443",
   true
 );
 
@@ -25,7 +25,7 @@ export async function connect(): Promise<Socket> {
 
       session = await client.authenticateDevice(deviceId);
 
-      socket = client.createSocket();
+      socket = client.createSocket(true);
 
       await socket.connect(session, true);
 
